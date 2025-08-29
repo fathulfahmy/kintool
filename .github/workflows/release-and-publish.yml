@@ -1,0 +1,57 @@
+name: release-and-publish
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: googleapis/release-please-action@v4
+        id: release
+        with:
+          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+          release-type: node
+
+      - uses: actions/checkout@v4
+        if: ${{ steps.release.outputs.release_created }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: "https://registry.npmjs.org"
+          cache: npm
+        if: ${{ steps.release.outputs.release_created }}
+
+      - run: npm ci
+        if: ${{ steps.release.outputs.release_created }}
+
+      - run: npm run build
+        if: ${{ steps.release.outputs.release_created }}
+
+      - run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+        if: ${{ steps.release.outputs.release_created }}
+
+      - run: |
+          set -euxo pipefail
+          ZIP_FILE="kintool-v${{ steps.release.outputs.tag_name }}.zip"
+          zip -r "$ZIP_FILE" dist/ package.json CHANGELOG.md README.md
+          sha256sum "$ZIP_FILE" > "$ZIP_FILE.sha256"
+        if: ${{ steps.release.outputs.release_created }}
+
+      - run: |
+          set -euxo pipefail
+          ZIP_FILE="kintool-v${{ steps.release.outputs.tag_name }}.zip"
+          gh release upload ${{ steps.release.outputs.tag_name }} "$ZIP_FILE"
+          gh release upload ${{ steps.release.outputs.tag_name }} "$ZIP_FILE.sha256"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: ${{ steps.release.outputs.release_created }}
