@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/fathulfahmy/kintool/compare/v0.1.0...v0.1.1) (2025-08-29)
+
+
+### Bug Fixes
+
+* add default export ([0c6542e](https://github.com/fathulfahmy/kintool/commit/0c6542ecac96994095ef1395c6547500f16ae2aa))
+
 ## 0.1.0 (2025-08-29)
 
 
