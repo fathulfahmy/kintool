@@ -1,0 +1,62 @@
+{
+  "name": "kintool",
+  "version": "0.1.0",
+  "description": "A toolkit for Kintone JavaScript customization",
+  "keywords": [
+    "kintool",
+    "kintone"
+  ],
+  "homepage": "https://github.com/fathulfahmy/kintool#readme",
+  "bugs": {
+    "url": "https://github.com/fathulfahmy/kintool/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fathulfahmy/kintool.git"
+  },
+  "license": "MIT",
+  "author": "Fathul Fahmy",
+  "type": "module",
+  "main": "dist/kintool.umd.js",
+  "module": "dist/kintool.esm.js",
+  "browser": "dist/kintool.iife.min.js",
+  "exports": {
+    ".": {
+      "import": "./dist/kintool.esm.js",
+      "require": "./dist/kintool.umd.js",
+      "browser": "./dist/kintool.iife.min.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepare": "husky",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "dev": "rollup --config --watch",
+    "build": "rollup --config"
+  },
+  "devDependencies": {
+    "@eslint/compat": "^1.3.2",
+    "@eslint/js": "^9.34.0",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^28.0.6",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
+    "eslint": "^9.34.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^16.3.0",
+    "husky": "^9.1.7",
+    "prettier": "3.6.2",
+    "rollup": "^4.49.0"
+  },
+  "dependencies": {
+    "@kintone/rest-api-client": "^5.7.4",
+    "kintone-ui-component": "^1.22.0"
+  }
+}
