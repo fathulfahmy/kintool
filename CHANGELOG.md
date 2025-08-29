@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/fathulfahmy/kintool/compare/v0.1.1...v0.1.2) (2025-08-29)
+
+
+### Bug Fixes
+
+* remove named exports ([8542301](https://github.com/fathulfahmy/kintool/commit/8542301677c65e1045a75520840306a1d031d068))
+
 ## [0.1.1](https://github.com/fathulfahmy/kintool/compare/v0.1.0...v0.1.1) (2025-08-29)
 
 
