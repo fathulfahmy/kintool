@@ -1,4 +1,4 @@
-name: lint-and-build
+name: ci
 
 on:
   push:
@@ -26,7 +26,6 @@ jobs:
       - run: npm run lint
 
   build:
-    name: Build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
