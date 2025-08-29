@@ -122,5 +122,3 @@ if (typeof window !== "undefined" && !window.kintool) {
 }
 
 export default kintool;
-
-export { Kintool, kintool };
