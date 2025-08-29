@@ -42,14 +42,14 @@ jobs:
 
       - run: |
           set -euxo pipefail
-          ZIP_FILE="kintool-v${{ steps.release.outputs.tag_name }}.zip"
+          ZIP_FILE="kintool-${{ steps.release.outputs.tag_name }}.zip"
           zip -r "$ZIP_FILE" dist/ package.json CHANGELOG.md README.md
           sha256sum "$ZIP_FILE" > "$ZIP_FILE.sha256"
         if: ${{ steps.release.outputs.release_created }}
 
       - run: |
           set -euxo pipefail
-          ZIP_FILE="kintool-v${{ steps.release.outputs.tag_name }}.zip"
+          ZIP_FILE="kintool-${{ steps.release.outputs.tag_name }}.zip"
           gh release upload ${{ steps.release.outputs.tag_name }} "$ZIP_FILE"
           gh release upload ${{ steps.release.outputs.tag_name }} "$ZIP_FILE.sha256"
         env:
