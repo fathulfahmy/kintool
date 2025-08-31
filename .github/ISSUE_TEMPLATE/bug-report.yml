@@ -1,8 +1,7 @@
-name: "🐛 Bug/Issue report"
+name: "🐛 Bug report"
 description: "Please provide as much detail as possible. Issues may be closed if they do not follow the template."
 title: "[🐛] Bug Report Title - CHANGE ME "
 labels: ["bug"]
-type: "Bug"
 body:
   - type: textarea
     id: issue
