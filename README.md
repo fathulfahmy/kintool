@@ -26,16 +26,16 @@
 <h3 align="center">Kintool</h3>
 
   <p align="center">
-    A toolkit for Kintone JavaScript customization.
+    A toolkit for Kintone JavaScript customization
     <br />
     <a href="https://github.com/fathulfahmy/kintool"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://github.com/fathulfahmy/kintool">View Demo</a>
     &middot;
-    <a href="https://github.com/fathulfahmy/kintool/issues/new?labels=bug&template=bug-report.yml">Report Bug</a>
+    <a href="https://github.com/fathulfahmy/kintool/issues/new?template=bug-report.yml">Report Bug</a>
     &middot;
-    <a href="https://github.com/fathulfahmy/kintool/issues/new?labels=enhancement&template=feature-request.yml">Request Feature</a>
+    <a href="https://github.com/fathulfahmy/kintool/issues/new?template=feature-request.yml">Request Feature</a>
   </p>
 </div>
 
@@ -69,14 +69,14 @@
 
 ## About The Project
 
-Kintool is a cross-platform development toolkit for Kintone. It provides a cross-platform JavaScript API, an integrated UI Component library, and a REST API Client.
+Kintool is a development toolkit for Kintone JavaScript customization. It provides a cross-platform JavaScript API, an integrated UI Component library, and a REST API Client.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
 
-- [Kintone REST API Client][kintone-rest-api-client-docs]
-- [Kintone UI Component][kintone-ui-component-docs]
+- [Kintone REST API Client][kintone-api-url]
+- [Kintone UI Component][kintone-ui-url]
 - [Rollup][rollup-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -124,46 +124,60 @@ Kintool is a cross-platform development toolkit for Kintone. It provides a cross
 
 #### Option 1: File Upload
 
-1. Download the latest assets `kintool.zip` from [Releases][releases-url]
+1. Download the latest assets `kintool.zip` from [Releases][releases-url].
 2. Go to [JavaScript and CSS Customization][kintone-customization-url] in Kintone App settings.
-3. Upload `kintool.umd.min.js`.
+3. Upload `kintool.iife.min.js`.
 4. Click on Save and Update App.
 
 #### Option 2: CDN URL
+
+> CDN is not recommended for production environment. Please download `kintool.iife.min.js` from GitHub Releases to prevent any failures and problems associated with CDN.
 
 1. Copy the CDN URL.
 2. Go to [JavaScript and CSS Customization][kintone-customization-url] in Kintone App settings.
 3. Paste the CDN URL.
 4. Click on Save and Update App.
 
-jsDelivr
+##### jsDelivr
 
 ```
-// specific version
-https://cdn.jsdelivr.net/npm/kintool@1.2.3/dist/kintool.umd.min.js
-
-// version range
-https://cdn.jsdelivr.net/npm/kintool@1.2/dist/kintool.umd.min.js
-https://cdn.jsdelivr.net/npm/kintool@1/dist/kintool.umd.min.js
-
-// latest
-// NOT RECOMMENDED FOR PRODUCTION
-https://cdn.jsdelivr.net/npm/kintool/dist/kintool.umd.min.js
+https://cdn.jsdelivr.net/npm/kintool@x.x.x/dist/kintool.iife.min.js
+https://cdn.jsdelivr.net/npm/kintool@x.x/dist/kintool.iife.min.js
+https://cdn.jsdelivr.net/npm/kintool@x/dist/kintool.iife.min.js
+https://cdn.jsdelivr.net/npm/kintool/dist/kintool.iife.min.js
 ```
 
-UNPKG
+##### UNPKG
 
 ```
-// specific version
-https://unpkg.com/kintool@1.2.3/dist/kintool.umd.min.js
+https://unpkg.com/kintool@x.x.x/dist/kintool.iife.min.js
+https://unpkg.com/kintool@x.x/dist/kintool.iife.min.js
+https://unpkg.com/kintool@x/dist/kintool.iife.min.js
+https://unpkg.com/kintool/dist/kintool.iife.min.js
+```
 
-// version range
-https://unpkg.com/kintool@1.2/dist/kintool.umd.min.js
-https://unpkg.com/kintool@1/dist/kintool.umd.min.js
+#### Option 3: NPM Package
 
-// latest
-// NOT RECOMMENDED FOR PRODUCTION
-https://unpkg.com/dist/kintool.umd.min.js
+1. Install package.
+
+```
+npm install kintool
+pnpm add kintool
+yarn add kintool
+```
+
+2. Import package.
+
+```javascript
+import kintool from "kintool";
+
+(async () => {
+  await kintool.init();
+
+  kintool.events.on("app.record.create.show", (event) => {
+    return event;
+  });
+})();
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -178,7 +192,7 @@ https://unpkg.com/dist/kintool.umd.min.js
 (async () => {
   await kintool.init();
 
-  // Access kintone with kintool
+  // Access Kintone JavaScript API with kintool
   kintool.events.on("app.record.create.show", (event) => {
     console.log(kintool.app);
     console.log(kintool.space);
@@ -192,22 +206,22 @@ https://unpkg.com/dist/kintool.umd.min.js
 })();
 ```
 
-| API                                  | Description                                             |
-| ------------------------------------ | ------------------------------------------------------- |
-| kintool.init({})                     | Initialize kintool with optional config                 |
-| kintool.events.on(events, callback)  | Resolves to `app` or `mobile.app`                       |
-| kintool.events.off(events, callback) | Resolves to `app` or `mobile.app`                       |
-| kintool.app                          | Resolves to `kintone.app` or `kintone.mobile.app`       |
-| kintool.space                        | Resolves to `kintone.space` or `kintone.mobile.space`   |
-| kintool.portal                       | Resolves to `kintone.portal` or `kintone.mobile.portal` |
-| kintool.isMobileApp                  | Boolean indicating mobile environment                   |
+| API                               | Description                                             |
+| --------------------------------- | ------------------------------------------------------- |
+| kintool.init({})                  | Initialize kintool with optional configuration          |
+| kintool.events.on(type, handler)  | Resolves to `app` or `mobile.app`                       |
+| kintool.events.off(type, handler) | Resolves to `app` or `mobile.app`                       |
+| kintool.app                       | Resolves to `kintone.app` or `kintone.mobile.app`       |
+| kintool.space                     | Resolves to `kintone.space` or `kintone.mobile.space`   |
+| kintool.portal                    | Resolves to `kintone.portal` or `kintone.mobile.portal` |
+| kintool.isMobileApp               | Boolean indicating mobile environment                   |
 
 Please refer to [Kintone JavaScript API Docs][kintone-customization-docs]
 
 ### UI Component
 
 ```javascript
-// Access Kuc with kintool.ui
+// Access Kintone UI Component with kintool.ui
 const dropdown = new kintool.ui.Dropdown({
   label: "Name",
   items: users,
@@ -215,12 +229,12 @@ const dropdown = new kintool.ui.Dropdown({
 console.log(dropdown);
 ```
 
-Please refer to [Kintone UI Component Docs][kintone-ui-component-docs]
+Please refer to [Kintone UI Component Docs][kintone-ui-docs]
 
 ### REST API Client
 
 ```javascript
-// Access client with kintool.api
+// Access Kintone REST API Client with kintool.api
 const response = await kintool.api.record.getRecords({
   app: "1",
   query: 'Account_Status in ("Active")',
@@ -228,20 +242,20 @@ const response = await kintool.api.record.getRecords({
 console.log(response);
 ```
 
-Please refer to [Kintone REST API Client Docs][kintone-rest-api-client-docs]
+Please refer to [Kintone REST API Client References][kintone-api-docs]
 
 ### Configuration
 
 ```javascript
 await kintool.init({
   api: {
-    // Kintone REST API Client config
+    // Kintone REST API Client Parameters
     baseUrl: "https://example.kintone.com",
   },
 });
 ```
 
-Please refer to [Kintone REST API Client Docs][Kintone-rest-api-client-docs]
+Please refer to [Kintone REST API Client Parameters][kintone-api-config-docs]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -323,8 +337,9 @@ Project Link: [https://github.com/fathulfahmy/kintool](https://github.com/fathul
 [linkedin-url]: https://linkedin.com/in/fathulfahmy
 [kintone-customization-url]: https://get.kintone.help/k/en/app/customize/js_customize.html
 [kintone-customization-docs]: https://kintone.dev/en/docs/kintone/js-api/
-[kintone-rest-api-client-docs]: https://www.npmjs.com/package/@kintone/rest-api-client
-[Kintone-rest-api-client-docs]: https://github.com/kintone/js-sdk/tree/main/packages/rest-api-client#readme
-[kintone-ui-component-docs]: https://ui-component.kintone.dev/
-[Kintone-ui-component-docs]: https://ui-component.kintone.dev/docs/components/desktop/attachment
+[kintone-api-url]: https://www.npmjs.com/package/@kintone/rest-api-client
+[kintone-api-docs]: https://github.com/kintone/js-sdk/tree/main/packages/rest-api-client#references
+[kintone-api-config-docs]: https://github.com/kintone/js-sdk/tree/main/packages/rest-api-client#parameters-for-kintonerestapiclient
+[kintone-ui-url]: https://ui-component.kintone.dev/
+[kintone-ui-docs]: https://ui-component.kintone.dev/docs/components/desktop/attachment
 [rollup-url]: https://rollupjs.org/
