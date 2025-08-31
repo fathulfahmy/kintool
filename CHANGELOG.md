@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.0](https://github.com/fathulfahmy/kintool/compare/v0.1.2...v1.0.0) (2025-08-31)
+
+
+### Miscellaneous Chores
+
+* release 1.0.0 ([3de42ba](https://github.com/fathulfahmy/kintool/commit/3de42babd6460118f8c7586681a4d89cf0961d2f))
+
 ## [0.1.2](https://github.com/fathulfahmy/kintool/compare/v0.1.1...v0.1.2) (2025-08-29)
 
 
