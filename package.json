@@ -14,6 +14,20 @@
     "type": "git",
     "url": "git+https://github.com/fathulfahmy/kintool.git"
   },
+  "funding": [
+    {
+      "type": "ko-fi",
+      "url": "https://ko-fi.com/fathulfahmy"
+    },
+    {
+      "type": "buymeacoffee",
+      "url": "https://www.buymeacoffee.com/fathulfahmy"
+    },
+    {
+      "type": "patreon",
+      "url": "https://patreon.com/fathulfahmy"
+    }
+  ],
   "license": "MIT",
   "author": "Fathul Fahmy",
   "type": "module",
