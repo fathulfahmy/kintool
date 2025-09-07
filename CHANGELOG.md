@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/fathulfahmy/kintool/compare/v1.0.0...v1.0.1) (2025-09-07)
+
+
+### Bug Fixes
+
+* add funding ([#17](https://github.com/fathulfahmy/kintool/issues/17)) ([9eafcc1](https://github.com/fathulfahmy/kintool/commit/9eafcc111ad7d980af6a3c285805ca9abd9f1035))
+
 ## [1.0.0](https://github.com/fathulfahmy/kintool/compare/v0.1.2...v1.0.0) (2025-08-31)
 
 
