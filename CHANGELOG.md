@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/fathulfahmy/kintool/compare/v1.0.1...v1.1.0) (2026-10-21)
+
+
+### Features
+
+* update dependency ([8479fcd](https://github.com/fathulfahmy/kintool/commit/8479fcd79ae63aaaa869fa87c645c48d6fff860b))
+
 ## [1.0.1](https://github.com/fathulfahmy/kintool/compare/v1.0.0...v1.0.1) (2025-09-07)
 
 
