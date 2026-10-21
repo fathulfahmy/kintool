@@ -64,7 +64,7 @@
     "@trivago/prettier-plugin-sort-imports": "^6.0.0",
     "eslint": "^9.34.0",
     "eslint-config-prettier": "^10.1.8",
-    "globals": "^16.3.0",
+    "globals": "^17.0.0",
     "husky": "^9.1.7",
     "prettier": "3.9.10",
     "rollup": "^4.49.0"
