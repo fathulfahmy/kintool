@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/fathulfahmy/kintool/compare/v1.0.1...v1.0.2) (2026-10-21)
+
+
+### Bug Fixes
+
+* release patch ([7934863](https://github.com/fathulfahmy/kintool/commit/7934863f9bedef5b52c8d8cf6f6abdcd77dd19e4))
+
 ## [1.0.1](https://github.com/fathulfahmy/kintool/compare/v1.0.0...v1.0.1) (2025-09-07)
 
 
